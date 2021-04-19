@@ -44,12 +44,14 @@ THIRD_PARTY_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'corsheaders',
+    'simple_history',
 ]
 
 # My Apps
 MY_APPS = [
     'users',
     'bratool',
+    'tools',
 ]
 
 INSTALLED_APPS = DJANGO_CORE_APPS + THIRD_PARTY_APPS + MY_APPS
