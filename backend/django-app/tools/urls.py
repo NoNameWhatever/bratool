@@ -1,8 +1,14 @@
-from django.urls import path
+from django.urls import path, include
+
+from rest_framework.routers import DefaultRouter
+
 from tools import views
 
+router = DefaultRouter()
+router.register('tools-viewset', views.ToolsViewset, basename='tools-viewset')
 
 
 urlpatterns = [
-    path('list/', views.ToolApiView.as_view(), name='api_list'),   
+    path('list/', views.ToolApiView.as_view(), name='api_list'),
+    path('', include(router.urls))
 ]
