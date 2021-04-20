@@ -1,8 +1,8 @@
-from django.urls import path, include
-from . import views
+from django.urls import path
+from tools import views
 
 
 
 urlpatterns = [
-    path('list/', views.apiListView, name='api_list'),   
+    path('list/', views.ToolApiView.as_view(), name='api_list'),   
 ]
