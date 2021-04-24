@@ -4,11 +4,12 @@ from rest_framework import status
 from rest_framework import viewsets
 
 from tools import serializers
+from tools import models
 
 
 class ToolApiView(APIView):
     """Tool API View"""
-    serializer_class = serializers.ToolsSerializer
+    serializer_class = serializers.TestSerializer
 
     def get(self, request, format=None):
         """Return a list of tools"""        
@@ -51,7 +52,7 @@ class ToolApiView(APIView):
 
 class ToolsViewset(viewsets.ViewSet):
     """Test of API viewsets"""
-    serializer_class = serializers.ToolsSerializer
+    serializer_class = serializers.TestSerializer
 
     def list(self, request):
         """Return a Hello message"""
@@ -93,3 +94,10 @@ class ToolsViewset(viewsets.ViewSet):
     def destroy(self, request, pk=None):
         """Handle removing an object"""
         return Response({'http_method': 'DELETE'})
+
+class ToolViewSet(viewsets.ModelViewSet):
+    """Handle creating and updating tools"""
+    serializer_class = serializers.ToolsSerializer
+    queryset = models.Tool.objects.all()
+
+    

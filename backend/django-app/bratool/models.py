@@ -6,7 +6,10 @@ import uuid
 class Department(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_("Name"), max_length=70)    
-    description = models.TextField(_("Description"), blank=True, null=True)
-    users = models.ForeignKey("users.CustomUser", verbose_name=_("user"), null=True, on_delete=models.SET_NULL)    
+    description = models.TextField(_("Description"), blank=True, null=True)    
     isActive = models.BooleanField(_("active"), default=True)
     history = HistoricalRecords()
+
+    def __str__(self):
+        return self.name
+    

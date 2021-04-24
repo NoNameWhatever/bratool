@@ -39,6 +39,7 @@ class CustomUser(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    department = models.ManyToManyField("bratool.Department", verbose_name=_("department"), blank=True, null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

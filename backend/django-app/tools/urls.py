@@ -6,6 +6,7 @@ from tools import views
 
 router = DefaultRouter()
 router.register('tools-viewset', views.ToolsViewset, basename='tools-viewset')
+router.register('tool', views.ToolViewSet)
 
 
 urlpatterns = [
